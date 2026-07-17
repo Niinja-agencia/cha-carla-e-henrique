@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chá de Casa Nova · Carla e Henrique</title>
+<meta name="description" content="Lista de presentes do Chá de Casa Nova da Carla e Henrique. Marque o que você vai levar." />
+<meta name="theme-color" content="#3f5c46" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f4f3ea;
+    --paper:#faf9f2;
+    --green-900:#33492f;
+    --green-800:#3f5c46;
+    --green-700:#4d6d4a;
+    --green-600:#5e7d5a;
+    --green-400:#8fae86;
+    --sage-bg:#e8efe4;
+    --sage-bg-2:#eef3ea;
+    --sage-line:#cfdcc7;
+    --ink:#3a473a;
+    --muted:#7d8b77;
+    --shadow:0 10px 30px rgba(51,73,47,.10);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Jost',system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 50% -200px, #eef2e7 0%, transparent 60%),
+      var(--cream);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px 80px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    margin-top:20px;
+    background:var(--paper);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:54px 26px 42px;
+    text-align:center;
+    overflow:hidden;
+    border:1px solid #ece9dc;
+  }
+  .leaf{position:absolute;color:var(--green-600);pointer-events:none;}
+  .leaf-a{top:-18px;left:-26px;width:170px;height:170px;transform:rotate(6deg);opacity:.9;}
+  .leaf-b{top:-22px;right:-26px;width:170px;height:170px;transform:scaleX(-1) rotate(6deg);opacity:.9;}
+  .leaf svg .l2{color:var(--green-400);}
+
+  .eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    letter-spacing:.14em;
+    font-size:clamp(24px,6vw,40px);
+    font-weight:600;
+    color:var(--green-800);
+    text-transform:uppercase;
+    margin:0;
+    line-height:1.05;
+  }
+  .names{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(46px,12vw,84px);
+    color:var(--green-700);
+    line-height:1;
+    margin:2px 0 6px;
+  }
+  .date-row{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin:22px auto 6px;max-width:520px;
+  }
+  .date-side{
+    flex:1;font-family:'Cormorant Garamond',serif;color:var(--green-800);
+    font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+    font-size:clamp(17px,4.4vw,26px);line-height:1.15;
+  }
+  .date-side .line{height:1px;background:var(--sage-line);margin:8px auto 0;width:70%;}
+  .date-blob{position:relative;width:132px;height:118px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;}
+  .date-blob svg{position:absolute;inset:0;width:100%;height:100%;}
+  .date-blob .d-num{position:relative;font-family:'Cormorant Garamond',serif;color:#fff;font-weight:700;font-size:42px;line-height:.9;text-shadow:0 1px 2px rgba(0,0,0,.12);}
+  .date-blob .d-mon{position:relative;font-family:'Great Vibes',cursive;color:#fff;font-size:26px;margin-top:-2px;}
+  .date-blob .d-inner{position:relative;display:flex;flex-direction:column;align-items:center;}
+
+  .hero p.lead{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(18px,4.4vw,23px);
+    color:var(--green-800);
+    max-width:460px;margin:14px auto 0;
+  }
+  .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:center;align-items:flex-start;}
+  .meta .cell{display:flex;gap:10px;align-items:flex-start;max-width:300px;text-align:left;}
+  .meta .cell svg{flex:0 0 auto;margin-top:2px;color:var(--green-700);}
+  .meta .cell b{display:block;font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--green-800);letter-spacing:.02em;}
+  .meta .cell span{font-size:14px;color:var(--muted);}
+
+  /* ---------- GIFTS ---------- */
+  .intro{
+    background:var(--sage-bg-2);
+    border:1px solid var(--sage-line);
+    border-radius:var(--radius);
+    padding:22px 22px;
+    margin-top:22px;
+  }
+  .intro h2{font-family:'Cormorant Garamond',serif;color:var(--green-800);font-size:clamp(24px,6vw,32px);margin:0 0 6px;font-weight:700;letter-spacing:.01em;}
+  .intro p{margin:0;color:#54614f;font-size:15px;}
+  .note{
+    display:flex;gap:10px;align-items:flex-start;margin-top:14px;
+    background:#fff;border:1px dashed var(--green-400);border-radius:14px;padding:12px 14px;
+    color:#4f5d49;font-size:14.5px;
+  }
+  .note svg{flex:0 0 auto;color:var(--green-600);margin-top:1px;}
+
+  .summary{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+  .chip{
+    background:#fff;border:1px solid var(--sage-line);border-radius:999px;
+    padding:7px 14px;font-size:13.5px;color:var(--green-800);display:flex;gap:7px;align-items:center;
+  }
+  .chip b{color:var(--green-700);}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:26px 2px 12px;flex-wrap:wrap;}
+  .toolbar h3{font-family:'Cormorant Garamond',serif;color:var(--green-800);margin:0;font-size:22px;}
+  .btn{
+    border:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;font-size:14.5px;
+    border-radius:999px;padding:10px 18px;transition:.15s;display:inline-flex;gap:8px;align-items:center;
+  }
+  .btn-primary{background:var(--green-700);color:#fff;box-shadow:0 6px 16px rgba(77,109,74,.28);}
+  .btn-primary:hover{background:var(--green-800);}
+  .btn-ghost{background:transparent;color:var(--green-700);border:1px solid var(--sage-line);}
+  .btn-ghost:hover{background:#fff;}
+
+  .cat{margin-top:20px;background:var(--sage-bg);border:1px solid var(--sage-line);border-radius:var(--radius);overflow:hidden;}
+  .cat-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--sage-line);}
+  .cat-head .emo{font-size:18px;line-height:1;}
+  .cat-head h4{margin:0;font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.08em;color:var(--green-800);font-size:19px;text-transform:uppercase;}
+  .cat-head .cnt{margin-left:auto;font-size:12.5px;color:var(--muted);}
+  .items{list-style:none;margin:0;padding:6px;}
+  .item{
+    display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+    background:#fff;border:1px solid #eef2ea;border-radius:12px;
+    padding:11px 13px;margin:6px 0;cursor:pointer;transition:.14s;font-family:inherit;color:inherit;
+  }
+  .item:hover{border-color:var(--green-400);transform:translateY(-1px);}
+  .item .ring{
+    flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:2px solid var(--green-400);
+    display:flex;align-items:center;justify-content:center;color:#fff;transition:.14s;
+  }
+  .item .ring svg{opacity:0;transition:.14s;}
+  .item .name{flex:1;font-size:15.5px;color:#3f4a3d;}
+  .item .tag{display:inline-block;margin-left:8px;font-size:11px;color:var(--green-700);background:#eaf2e6;border:1px solid var(--sage-line);border-radius:999px;padding:1px 8px;vertical-align:middle;}
+  .item .pill{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);
+    background:#f4f6f1;border:1px solid #e7ede2;border-radius:999px;padding:4px 10px;min-width:44px;justify-content:center;white-space:nowrap;
+  }
+  .item .pill svg{color:var(--green-600);}
+  .item.marked{background:linear-gradient(0deg,#eef6ea,#f4faf1);border-color:var(--green-400);}
+  .item.marked .ring{background:var(--green-600);border-color:var(--green-600);}
+  .item.marked .ring svg{opacity:1;}
+  .item.marked .pill{background:#e5f1df;border-color:#cfe3c4;color:var(--green-800);}
+  .item.marked .name{color:var(--green-900);font-weight:500;}
+  .you{font-size:11px;color:var(--green-700);margin-left:6px;font-weight:600;}
+
+  /* ---------- ADD FORM (modal) ---------- */
+  .backdrop{position:fixed;inset:0;background:rgba(40,55,38,.42);display:none;align-items:center;justify-content:center;padding:18px;z-index:40;}
+  .backdrop.open{display:flex;}
+  .modal{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);max-width:420px;width:100%;padding:24px;border:1px solid #ece9dc;}
+  .modal h3{font-family:'Cormorant Garamond',serif;color:var(--green-800);margin:0 0 4px;font-size:24px;}
+  .modal p{margin:0 0 16px;font-size:14px;color:var(--muted);}
+  label{display:block;font-size:13px;color:var(--green-800);margin:12px 0 6px;font-weight:500;}
+  select,input[type=text]{
+    width:100%;padding:11px 13px;border:1px solid var(--sage-line);border-radius:12px;
+    font-family:inherit;font-size:15px;color:var(--ink);background:#fff;
+  }
+  select:focus,input:focus{outline:2px solid var(--green-400);outline-offset:1px;border-color:var(--green-400);}
+  .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;}
+
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--green-800);color:#fff;padding:12px 20px;border-radius:999px;font-size:14px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:50;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .footer{text-align:center;margin-top:40px;color:var(--muted);font-size:13px;}
+  .footer .heart{color:var(--green-600);}
+  .state{text-align:center;color:var(--muted);padding:40px 0;font-size:15px;}
+  .spinner{width:34px;height:34px;border:3px solid var(--sage-line);border-top-color:var(--green-600);border-radius:50%;margin:0 auto 12px;animation:spin 1s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  @media (max-width:520px){
+    .hero{padding:44px 16px 32px;}
+    .date-row{gap:8px;}
+    .date-side{font-size:16px;}
+    .date-blob{width:112px;height:100px;}
+    .date-blob .d-num{font-size:34px;}
+    .meta{gap:14px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- reusable leaf sprig -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sprig" viewBox="0 0 220 220">
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55">
+      <path d="M42,196 C70,150 92,120 116,92 C138,66 160,46 186,30"/>
+    </g>
+    <g>
+      <ellipse class="l2" fill="currentColor" cx="0" cy="0" rx="13" ry="10" transform="translate(60,168) rotate(-42)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="13" ry="10" transform="translate(50,148) rotate(52)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="13" ry="10" transform="translate(80,140) rotate(-40)"/>
+      <ellipse class="l2" fill="currentColor" cx="0" cy="0" rx="13" ry="10" transform="translate(68,120) rotate(56)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="12" ry="9" transform="translate(98,112) rotate(-38)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="12" ry="9" transform="translate(86,92) rotate(58)"/>
+      <ellipse class="l2" fill="currentColor" cx="0" cy="0" rx="12" ry="9" transform="translate(116,84) rotate(-36)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="11" ry="8" transform="translate(106,66) rotate(58)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="11" ry="8" transform="translate(136,58) rotate(-32)"/>
+      <ellipse class="l2" fill="currentColor" cx="0" cy="0" rx="10" ry="8" transform="translate(154,42) rotate(-28)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="9" ry="7" transform="translate(148,30) rotate(54)"/>
+      <ellipse fill="currentColor" cx="0" cy="0" rx="8" ry="6" transform="translate(176,28) rotate(-20)"/>
+    </g>
+  </symbol>
+</svg>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="leaf leaf-a"><svg width="170" height="170"><use href="#sprig"/></svg></span>
+    <span class="leaf leaf-b"><svg width="170" height="170"><use href="#sprig"/></svg></span>
+
+    <h1 class="eyebrow">Chá de Casa Nova</h1>
+    <div class="names">Carla e Henrique</div>
+
+    <div class="date-row">
+      <div class="date-side">Sábado<div class="line"></div></div>
+      <div class="date-blob">
+        <svg viewBox="0 0 132 118" aria-hidden="true">
+          <path fill="#b7cfae" d="M70 8c26-6 55 10 54 38 -1 26 14 33 4 54 -11 22 -44 20 -70 14 -25-6 -50-19 -50-46 0-26 12-30 22-45C40 14 48 13 70 8Z"/>
+          <path fill="#4d6d4a" d="M62 6c24-4 49 12 52 36 3 22 12 34 0 52 -12 19 -40 18 -63 13 -22-5 -43-18 -44-43 -1-24 10-32 20-46C36 12 42 9 62 6Z"/>
+        </svg>
+        <div class="d-inner"><span class="d-num">22</span><span class="d-mon">Agosto</span></div>
+      </div>
+      <div class="date-side">às 17:00<div class="line"></div></div>
+    </div>
+
+    <p class="lead">Será um prazer contar com a sua presença nesse momento especial em nossas vidas.</p>
+
+    <div class="meta">
+      <div class="cell">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <div><b>Local</b><span>Rua Haidêe de Alvarenga, 70 — Eldorado, Itabira/MG (Salão Macedo Inez — superior)</span></div>
+      </div>
+      <div class="cell">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+        <div><b>Sábado, 22 de agosto</b><span>a partir das 17h</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro">
+    <h2>Lista de presentes</h2>
+    <p>Separamos algumas ideias para ajudar quem quiser nos presentear. Toque em um presente para marcar que você vai levar — não precisa colocar seu nome. Você pode marcar mais de um.</p>
+    <div class="note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <div>Esta é apenas uma lista de <b>sugestões</b>. Sinta-se totalmente à vontade para trazer algo diferente, ou adicionar novas ideias no botão abaixo.</div>
+    </div>
+    <div class="summary" id="summary"></div>
+  </section>
+
+  <div class="toolbar">
+    <h3>Escolha um presente</h3>
+    <button class="btn btn-primary" id="openAdd">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+      Adicionar presente
+    </button>
+  </div>
+
+  <div id="list">
+    <div class="state"><div class="spinner"></div>Carregando a lista...</div>
+  </div>
+
+  <div class="footer">
+    Feito com <span class="heart">♥</span> para o chá de casa nova da Carla e Henrique
+  </div>
+</div>
+
+<!-- Add modal -->
+<div class="backdrop" id="backdrop">
+  <div class="modal">
+    <h3>Adicionar presente</h3>
+    <p>Sugira uma nova ideia para a lista.</p>
+    <label for="mcat">Categoria</label>
+    <select id="mcat"></select>
+    <label for="mname">Presente</label>
+    <input type="text" id="mname" maxlength="80" placeholder="Ex.: Jogo de panelas" />
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="cancelAdd">Cancelar</button>
+      <button class="btn btn-primary" id="confirmAdd">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+  "use strict";
+  const SUPABASE_URL = "https://vlmspnyqilhmgxluscuw.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZsbXNwbnlxaWxobWd4bHVzY3V3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NTc5NjksImV4cCI6MjA4OTQzMzk2OX0.z4C2YGeLqK_GYg97kqyLZskDtIKB29dGYWIcg37wn6E";
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const CAT_ORDER = ["COZINHA","BANHEIRO","QUARTO","SALA","ÁREA DE SERVIÇO","OUTROS"];
+  const CAT_EMO = {"COZINHA":"🍽️","BANHEIRO":"🛁","QUARTO":"🛏️","SALA":"🛋️","ÁREA DE SERVIÇO":"🧺","OUTROS":"🎁"};
+
+  let items = [];
+  let counts = {};
+  let marks = loadMarks();
+  let busy = {};
+
+  const $ = (id)=>document.getElementById(id);
+  const listEl = $("list");
+
+  function loadMarks(){ try{ return JSON.parse(localStorage.getItem("ccn_marks")||"{}"); }catch(e){ return {}; } }
+  function saveMarks(){ try{ localStorage.setItem("ccn_marks", JSON.stringify(marks)); }catch(e){} }
+
+  const checkIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  const personIcon = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg>';
+
+  function esc(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+  function catRank(c){ const i = CAT_ORDER.indexOf(c); return i<0 ? 50 : i; }
+
+  async function fetchAll(){
+    try{
+      const [ri, rm] = await Promise.all([
+        sb.from("cha_casa_nova_itens").select("id,categoria,nome,personalizado,ordem"),
+        sb.from("cha_casa_nova_marcacoes").select("id,item_id")
+      ]);
+      if(ri.error) throw ri.error;
+      if(rm.error) throw rm.error;
+      items = ri.data || [];
+      recount(rm.data || []);
+      render();
+    }catch(err){
+      console.error(err);
+      listEl.innerHTML = '<div class="state">Não consegui carregar a lista agora. Verifique a conexão e tente recarregar a página.</div>';
+    }
+  }
+
+  function recount(rows){
+    counts = {};
+    for(const r of rows){ counts[r.item_id] = (counts[r.item_id]||0)+1; }
+  }
+
+  async function refreshCounts(){
+    const { data, error } = await sb.from("cha_casa_nova_marcacoes").select("id,item_id");
+    if(!error){ recount(data||[]); render(); }
+  }
+
+  function render(){
+    const byCat = {};
+    for(const it of items){
+      (byCat[it.categoria] = byCat[it.categoria] || []).push(it);
+    }
+    const cats = Object.keys(byCat).sort((a,b)=> catRank(a)-catRank(b) || a.localeCompare(b));
+
+    let totalMarked = 0, mineCount = 0, itemsWithMark = 0;
+    for(const it of items){
+      const c = counts[it.id]||0;
+      totalMarked += c;
+      if(c>0) itemsWithMark++;
+      if(marks[it.id]) mineCount++;
+    }
+
+    // summary
+    $("summary").innerHTML =
+      '<span class="chip">'+personIcon+' <b>'+totalMarked+'</b> marcações no total</span>'+
+      '<span class="chip">🎁 <b>'+itemsWithMark+'</b> de '+items.length+' presentes já escolhidos</span>'+
+      (mineCount>0 ? '<span class="chip">✅ Você marcou <b>'+mineCount+'</b></span>' : '');
+
+    let html = "";
+    for(const cat of cats){
+      const arr = byCat[cat].slice().sort((a,b)=> (a.ordem-b.ordem) || a.nome.localeCompare(b.nome));
+      const chosen = arr.filter(x=> (counts[x.id]||0)>0).length;
+      html += '<section class="cat">';
+      html += '<div class="cat-head"><span class="emo">'+(CAT_EMO[cat]||"🎁")+'</span><h4>'+esc(cat)+'</h4><span class="cnt">'+chosen+'/'+arr.length+' escolhidos</span></div>';
+      html += '<ul class="items">';
+      for(const it of arr){
+        const c = counts[it.id]||0;
+        const mine = !!marks[it.id];
+        const pill = c>0
+          ? '<span class="pill">'+personIcon+' '+c+'</span>'
+          : '<span class="pill" style="opacity:.55">'+personIcon+' 0</span>';
+        html += '<li><button class="item'+(mine?' marked':'')+'" data-id="'+it.id+'" aria-pressed="'+mine+'">'+
+                  '<span class="ring">'+checkIcon+'</span>'+
+                  '<span class="name">'+esc(it.nome)+
+                    (it.personalizado?'<span class="tag">sugestão de convidado</span>':'')+
+                    (mine?'<span class="you">você vai levar</span>':'')+
+                  '</span>'+
+                  pill+
+                '</button></li>';
+      }
+      html += '</ul></section>';
+    }
+    listEl.innerHTML = html;
+
+    listEl.querySelectorAll(".item").forEach(btn=>{
+      btn.addEventListener("click", ()=> toggle(btn.getAttribute("data-id")));
+    });
+  }
+
+  async function toggle(id){
+    if(busy[id]) return;
+    busy[id] = true;
+    try{
+      if(marks[id]){
+        const marcId = marks[id];
+        delete marks[id];
+        counts[id] = Math.max(0,(counts[id]||1)-1);
+        saveMarks(); render();
+        const { error } = await sb.from("cha_casa_nova_marcacoes").delete().eq("id", marcId);
+        if(error){ // revert
+          marks[id]=marcId; counts[id]=(counts[id]||0)+1; saveMarks(); render();
+          toast("Não deu para desmarcar agora.");
+        }
+      }else{
+        const { data, error } = await sb.from("cha_casa_nova_marcacoes").insert({item_id:id}).select("id").single();
+        if(error){ toast("Não deu para marcar agora."); }
+        else{
+          marks[id]=data.id; counts[id]=(counts[id]||0)+1; saveMarks(); render();
+          toast("Marcado! Obrigado 💚");
+        }
+      }
+    }catch(err){ console.error(err); toast("Ops, algo deu errado."); }
+    finally{ busy[id]=false; }
+  }
+
+  // ---- Add modal ----
+  function fillCats(){
+    const sel = $("mcat");
+    sel.innerHTML = CAT_ORDER.map(c=>'<option value="'+c+'">'+c.charAt(0)+c.slice(1).toLowerCase()+'</option>').join("");
+  }
+  function openModal(){ $("backdrop").classList.add("open"); $("mname").value=""; setTimeout(()=>$("mname").focus(),50); }
+  function closeModal(){ $("backdrop").classList.remove("open"); }
+
+  async function addGift(){
+    const cat = $("mcat").value;
+    const nome = $("mname").value.trim();
+    if(nome.length < 2){ toast("Escreva o nome do presente."); return; }
+    const btn = $("confirmAdd"); btn.disabled = true; btn.textContent = "Adicionando...";
+    try{
+      const { data, error } = await sb.from("cha_casa_nova_itens")
+        .insert({categoria:cat, nome:nome, personalizado:true, ordem:999})
+        .select("id,categoria,nome,personalizado,ordem").single();
+      if(error){ toast("Não consegui adicionar agora."); }
+      else{ items.push(data); render(); closeModal(); toast("Presente adicionado à lista!"); }
+    }catch(err){ console.error(err); toast("Ops, algo deu errado."); }
+    finally{ btn.disabled=false; btn.textContent="Adicionar"; }
+  }
+
+  let toastT;
+  function toast(msg){
+    const t = $("toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove("show"), 2600);
+  }
+
+  // ---- realtime ----
+  let rtT;
+  function scheduleRefresh(){ clearTimeout(rtT); rtT = setTimeout(refreshCounts, 350); }
+  function subscribe(){
+    sb.channel("ccn-live")
+      .on("postgres_changes",{event:"*",schema:"public",table:"cha_casa_nova_marcacoes"}, scheduleRefresh)
+      .on("postgres_changes",{event:"*",schema:"public",table:"cha_casa_nova_itens"}, fetchAll)
+      .subscribe();
+  }
+
+  // wire up
+  $("openAdd").addEventListener("click", openModal);
+  $("cancelAdd").addEventListener("click", closeModal);
+  $("confirmAdd").addEventListener("click", addGift);
+  $("backdrop").addEventListener("click", e=>{ if(e.target===$("backdrop")) closeModal(); });
+  $("mname").addEventListener("keydown", e=>{ if(e.key==="Enter") addGift(); });
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
+  document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) refreshCounts(); });
+
+  fillCats();
+  fetchAll();
+  subscribe();
+})();
+</script>
+</body>
+</html>
