@@ -152,19 +152,26 @@
     display:flex;align-items:center;justify-content:center;color:#fff;transition:.14s;
   }
   .item .ring svg{opacity:0;transition:.14s;}
-  .item .name{flex:1;font-size:15.5px;color:#3f4a3d;}
+  .item .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
+  .item .name{font-size:15.5px;color:#3f4a3d;}
   .item .tag{display:inline-block;margin-left:8px;font-size:11px;color:var(--green-700);background:#eaf2e6;border:1px solid var(--sage-line);border-radius:999px;padding:1px 8px;vertical-align:middle;}
-  .item .pill{
-    flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);
-    background:#f4f6f1;border:1px solid #e7ede2;border-radius:999px;padding:4px 10px;min-width:44px;justify-content:center;white-space:nowrap;
+  .meta-line{display:flex;align-items:center;gap:8px;min-height:20px;flex-wrap:wrap;}
+  .avatars{display:inline-flex;flex:0 0 auto;}
+  .avatars .av{
+    width:21px;height:21px;border-radius:50%;background:var(--green-600);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;border:2px solid #fff;
+    margin-left:-7px;box-shadow:0 1px 2px rgba(51,73,47,.15);
   }
-  .item .pill svg{color:var(--green-600);}
+  .avatars .av:first-child{margin-left:0;}
+  .avatars .av.me{background:var(--green-800);}
+  .avatars .av.more{background:#e2ecdb;color:var(--green-800);font-size:10.5px;font-weight:700;}
+  .meta-text{font-size:12.5px;color:var(--green-700);font-weight:600;}
+  .meta-text.none{color:var(--muted);font-weight:400;font-style:italic;}
   .item.marked{background:linear-gradient(0deg,#eef6ea,#f4faf1);border-color:var(--green-400);}
   .item.marked .ring{background:var(--green-600);border-color:var(--green-600);}
   .item.marked .ring svg{opacity:1;}
-  .item.marked .pill{background:#e5f1df;border-color:#cfe3c4;color:var(--green-800);}
+  .item.marked .avatars .av{border-color:#f4faf1;}
   .item.marked .name{color:var(--green-900);font-weight:500;}
-  .you{font-size:11px;color:var(--green-700);margin-left:6px;font-weight:600;}
 
   /* ---------- ADD FORM (modal) ---------- */
   .backdrop{position:fixed;inset:0;background:rgba(40,55,38,.42);display:none;align-items:center;justify-content:center;padding:18px;z-index:40;}
@@ -332,6 +339,29 @@
 
   function catRank(c){ const i = CAT_ORDER.indexOf(c); return i<0 ? 50 : i; }
 
+  function avatarsHTML(c, mine){
+    if(c<=0) return "";
+    const max = 5;
+    const shown = Math.min(c, max);
+    let h = '<span class="avatars">';
+    for(let i=0;i<shown;i++){
+      const me = (mine && i===0);
+      h += '<span class="av'+(me?' me':'')+'">'+personIcon+'</span>';
+    }
+    if(c>max){ h += '<span class="av more">+'+(c-max)+'</span>'; }
+    return h + '</span>';
+  }
+
+  function metaTextHTML(c, mine){
+    if(c<=0) return '<span class="meta-text none">Ninguém marcou ainda</span>';
+    if(mine){
+      if(c===1) return '<span class="meta-text">Você vai levar este presente</span>';
+      const o = c-1;
+      return '<span class="meta-text">Você e mais '+o+(o===1?' pessoa':' pessoas')+' vão levar</span>';
+    }
+    return '<span class="meta-text">'+c+(c===1?' pessoa já vai levar':' pessoas já vão levar')+'</span>';
+  }
+
   async function fetchAll(){
     try{
       const [ri, rm] = await Promise.all([
@@ -390,16 +420,14 @@
       for(const it of arr){
         const c = counts[it.id]||0;
         const mine = !!marks[it.id];
-        const pill = c>0
-          ? '<span class="pill">'+personIcon+' '+c+'</span>'
-          : '<span class="pill" style="opacity:.55">'+personIcon+' 0</span>';
         html += '<li><button class="item'+(mine?' marked':'')+'" data-id="'+it.id+'" aria-pressed="'+mine+'">'+
                   '<span class="ring">'+checkIcon+'</span>'+
-                  '<span class="name">'+esc(it.nome)+
-                    (it.personalizado?'<span class="tag">sugestão de convidado</span>':'')+
-                    (mine?'<span class="you">você vai levar</span>':'')+
+                  '<span class="body">'+
+                    '<span class="name">'+esc(it.nome)+
+                      (it.personalizado?'<span class="tag">sugestão de convidado</span>':'')+
+                    '</span>'+
+                    '<span class="meta-line">'+avatarsHTML(c,mine)+metaTextHTML(c,mine)+'</span>'+
                   '</span>'+
-                  pill+
                 '</button></li>';
       }
       html += '</ul></section>';
