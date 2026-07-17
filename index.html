@@ -176,9 +176,9 @@
   .item.marked .name{color:var(--green-900);font-weight:500;}
 
   /* ---------- ADD FORM (modal) ---------- */
-  .backdrop{position:fixed;inset:0;background:rgba(40,55,38,.42);display:none;align-items:center;justify-content:center;padding:18px;z-index:40;}
+  .backdrop{position:fixed;inset:0;background:rgba(40,55,38,.42);display:none;justify-content:center;padding:18px;z-index:40;overflow-y:auto;}
   .backdrop.open{display:flex;}
-  .modal{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);max-width:420px;width:100%;padding:24px;border:1px solid #ece9dc;}
+  .modal{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);max-width:420px;width:100%;padding:24px;border:1px solid #ece9dc;margin:auto;}
   .modal h3{font-family:'Poppins',sans-serif;color:var(--green-800);margin:0 0 4px;font-size:21px;font-weight:600;}
   .modal p{margin:0 0 16px;font-size:14px;color:var(--muted);}
   label{display:block;font-size:13px;color:var(--green-800);margin:12px 0 6px;font-weight:500;}
@@ -191,6 +191,26 @@
 
   .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--green-800);color:#fff;padding:12px 20px;border-radius:999px;font-size:14px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:50;}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* ---------- WELCOME / COMO FUNCIONA ---------- */
+  .welcome-modal{text-align:center;}
+  .welcome-badge{width:52px;height:52px;border-radius:50%;background:var(--sage-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:26px;}
+  .welcome-modal h3{font-size:21px;margin:0 0 8px;}
+  .welcome-modal p{color:#54614f;font-size:14.5px;font-weight:300;margin:0 0 8px;line-height:1.5;}
+  .welcome-modal p b{font-weight:600;color:var(--green-800);}
+  .welcome-modal .thanks{font-weight:500;color:var(--green-700);font-size:16px;margin:6px 0 0;}
+  .welcome-demo{background:var(--sage-bg-2);border:1px solid var(--sage-line);border-radius:14px;padding:12px;margin:14px 0;}
+  .demo-item{display:flex;align-items:center;gap:10px;background:linear-gradient(0deg,#eef6ea,#f4faf1);border:1px solid var(--green-400);border-radius:12px;padding:10px 12px;}
+  .demo-item .ring{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--green-600);border:2px solid var(--green-600);display:flex;align-items:center;justify-content:center;color:#fff;}
+  .demo-body{flex:1;text-align:left;display:flex;flex-direction:column;gap:2px;}
+  .demo-name{font-size:15px;color:var(--green-900);font-weight:500;}
+  .demo-meta{font-size:12px;color:var(--green-700);font-weight:600;}
+  .demo-tap{font-size:22px;flex:0 0 auto;animation:tapmove 1.3s ease-in-out infinite;}
+  @keyframes tapmove{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+  .demo-caption{display:block;font-size:12.5px;color:var(--muted);margin-top:8px;}
+  .welcome-modal .modal-actions{justify-content:center;margin-top:16px;}
+  .link-help{background:none;border:none;color:var(--green-700);font-family:inherit;font-size:13.5px;cursor:pointer;text-decoration:underline;padding:6px 0 0;margin:0;font-weight:500;display:inline-flex;align-items:center;gap:6px;}
+  .link-help:hover{color:var(--green-900);}
 
   .footer{text-align:center;margin-top:40px;color:var(--muted);font-size:13px;}
   .footer .heart{color:var(--green-600);}
@@ -281,6 +301,10 @@
       <div>Esta é apenas uma lista de <b>sugestões</b>. Sinta-se totalmente à vontade para trazer algo diferente, ou adicionar novas ideias no botão abaixo.</div>
     </div>
     <div class="summary" id="summary"></div>
+    <button class="link-help" id="howto">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .8-1 1.7M12 17h.01"/></svg>
+      Como funciona? Toque aqui
+    </button>
   </section>
 
   <div class="toolbar">
@@ -312,6 +336,31 @@
     <div class="modal-actions">
       <button class="btn btn-ghost" id="cancelAdd">Cancelar</button>
       <button class="btn btn-primary" id="confirmAdd">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Welcome / como funciona -->
+<div class="backdrop" id="welcome">
+  <div class="modal welcome-modal">
+    <div class="welcome-badge">🎁</div>
+    <h3>Como funciona</h3>
+    <p>Para selecionar o que você vai levar, é só <b>tocar no presente</b> e pronto!</p>
+    <div class="welcome-demo">
+      <div class="demo-item">
+        <span class="ring"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span class="demo-body">
+          <span class="demo-name">Copos</span>
+          <span class="demo-meta">Você vai levar este presente</span>
+        </span>
+        <span class="demo-tap">👆</span>
+      </div>
+      <span class="demo-caption">Tocou, marcou! Toque de novo para desmarcar.</span>
+    </div>
+    <p>Adicione um presente novo só se ele <b>ainda não estiver na lista</b>.</p>
+    <p class="thanks">Obrigado! 💚</p>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="welcomeOk">Entendi!</button>
     </div>
   </div>
 </div>
@@ -518,8 +567,16 @@
   $("confirmAdd").addEventListener("click", addGift);
   $("backdrop").addEventListener("click", e=>{ if(e.target===$("backdrop")) closeModal(); });
   $("mname").addEventListener("keydown", e=>{ if(e.key==="Enter") addGift(); });
-  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); closeWelcome(true); } });
   document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) refreshCounts(); });
+
+  // ---- welcome / como funciona ----
+  function openWelcome(){ $("welcome").classList.add("open"); }
+  function closeWelcome(seen){ $("welcome").classList.remove("open"); if(seen){ try{ localStorage.setItem("ccn_welcome_seen","1"); }catch(e){} } }
+  $("welcomeOk").addEventListener("click", ()=> closeWelcome(true));
+  $("howto").addEventListener("click", openWelcome);
+  $("welcome").addEventListener("click", e=>{ if(e.target===$("welcome")) closeWelcome(true); });
+  try{ if(!localStorage.getItem("ccn_welcome_seen")) openWelcome(); }catch(e){ openWelcome(); }
 
   fillCats();
   fetchAll();
